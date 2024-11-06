@@ -45,8 +45,6 @@ const SidebarLink = ({ icon: Icon, text, active }) => (
   </a>
 );
 
-
-
 const StatCard = ({ title, value, icon: Icon }) => (
   <div className="bg-white rounded-lg shadow p-4 sm:p-6">
     <div className="flex items-center justify-between">
@@ -82,14 +80,34 @@ const Dashboard = () => {
             <h1 className="text-xl md:text-2xl font-semibold text-purple-700">
               Dashboard
             </h1>
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <img
                 className="h-8 w-8 rounded-full object-cover"
                 src="/placeholder.svg?height=32&width=32"
                 alt="Profile"
               />
               <span className="ml-2 text-sm font-medium text-gray-700 hidden sm:inline-block">
-                John Doe
+                Sujal Dingankar
+              </span>
+            </div> */}
+            <div className="flex items-center">
+              {/* Placeholder icon for profile picture */}
+              <div className="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                <svg
+                  className="w-6 h-6 text-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <span className="ml-2 text-sm font-medium text-gray-700 hidden sm:inline-block">
+                Sujal Dingankar
               </span>
             </div>
           </div>
@@ -128,10 +146,10 @@ const Dashboard = () => {
               </h2>
               <div className="space-y-4">
                 {[
-                  { name: "Alice Johnson", type: "A+", date: "2023-06-15" },
-                  { name: "Bob Smith", type: "O-", date: "2023-06-14" },
-                  { name: "Charlie Brown", type: "B+", date: "2023-06-13" },
-                  { name: "Diana Prince", type: "AB-", date: "2023-06-12" },
+                  { name: "Harsha Surwase", type: "A+", date: "2023-06-15" },
+                  { name: "Shreeya Nemade", type: "O-", date: "2023-06-14" },
+                  { name: "Rakesh Ramane", type: "B+", date: "2023-06-13" },
+                  { name: "Shruti Bhuvad", type: "AB-", date: "2023-06-12" },
                 ].map((donation, index) => (
                   <div
                     key={index}

@@ -44,7 +44,7 @@ const ProfileEdit = () => {
         email: user.email || "",
         birthdate: user.birthDate ? new Date(user.birthDate) : new Date(), // Ensure valid date
         healthStatus: user.healthStatus || "Good",
-        image: "https://i.pravatar.cc/300", // Placeholder image
+        image: "https://i.pravatar.cc/300", 
       });
     }
   }, [user]);
@@ -197,120 +197,148 @@ const ProfileEdit = () => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row h-full min-h-screen w-screen bg-gray-900 text-gray-100">
-       
+      <div className="flex flex-col md:flex-row h-full min-h-screen w-screen bg-gray-100 text-gray-100">
         <Sidebar />
-        <div className="min-h-screen bg-white text-purple-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden border border-purple-200">
-        <div className="md:flex">
-          <div className="md:flex-shrink-0 bg-purple-100 md:w-1/3 p-8 flex flex-col items-center justify-center">
-            <div className="relative group">
-              <div className="w-40 h-40 rounded-full overflow-hidden bg-purple-200 flex items-center justify-center transition-transform duration-300 transform group-hover:scale-105">
-                {previewUrl ? (
-                  <img src={previewUrl} alt="Profile" className="w-full h-full object-cover" />
-                ) : (
-                  <User className="w-24 h-24 text-purple-400" />
-                )}
-              </div>
-              <label
-                htmlFor="profile-image"
-                className="absolute bottom-0 right-0 bg-purple-600 text-white p-2 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-110"
-              >
-                <Camera className="w-6 h-6" />
-                <input
-                  id="profile-image"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  className="hidden"
-                />
-              </label>
-            </div>
-            <h2 className="mt-4 text-xl text-purple-800 font-bold">
-              {profile.firstName} {profile.lastName}
-            </h2>
-            <p className="text-purple-600">{profile.healthStatus}</p>
-          </div>
-          <div className="p-8 md:w-2/3">
-            <h1 className="text-3xl font-bold mb-6 text-purple-900">Edit Your Profile</h1>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { name: 'firstName', label: 'First Name', icon: UserRound },
-                  { name: 'lastName', label: 'Last Name', icon: UserRound },
-                  { name: 'contactNo', label: 'Contact Number', prefix: '+91 |' },
-                  { name: 'email', label: 'Email', icon: Mail },
-                  { name: 'bloodgroup', label: 'Blood Group', icon: Droplet },
-                  { name: 'healthStatus', label: 'Health Status' },
-                ].map((field) => (
-                  <div key={field.name}>
-                    <label htmlFor={field.name} className="block text-sm font-medium text-purple-700">
-                      {field.label}
-                    </label>
-                    <div className="relative">
-                      <input
-                        id={field.name}
-                        name={field.name}
-                        type={field.name === 'email' ? 'email' : 'text'}
-                        value={profile[field.name]}
-                        onChange={handleInputChange}
-                        required
-                        className="mt-1 pl-10 block w-full p-2 rounded-md bg-white border border-purple-300 text-purple-900 shadow-sm focus:border-purple-500 focus:ring-purple-500 transition-colors duration-300"
+        <div className="min-h-screen w-[70%] m-auto bg-gray-100 text-purple-900 py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden border border-purple-200">
+            <div className="md:flex">
+              <div className="md:flex-shrink-0 bg-purple-100 md:w-1/3 p-8 flex flex-col items-center justify-center">
+                <div className="relative group">
+                  <div className="w-40 h-40 rounded-full overflow-hidden bg-purple-200 flex items-center justify-center transition-transform duration-300 transform group-hover:scale-105">
+                    {previewUrl ? (
+                      <img
+                        src={previewUrl}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
                       />
-                      {field.icon && (
-                        <field.icon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-purple-500" />
-                      )}
-                      {field.prefix && (
-                        <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-500">
-                          {field.prefix}
-                        </span>
-                      )}
-                    </div>
-                    {errors[field.name ] && (
-                      <p className="mt-1 text-sm text-red-500">{errors[field.name ]}</p>
+                    ) : (
+                      <User className="w-24 h-24 text-purple-400" />
                     )}
                   </div>
-                ))}
-                <div>
-                  <label className="block text-sm font-medium text-purple-700">Birthdate</label>
-                  <input
-                    type="date"
-                    value={profile.birthdate.toISOString().split('T')[0]}
-                    onChange={(e) => {
-                      const selectedDate = new Date(e.target.value)
-                      setProfile((prev) => ({
-                        ...prev,
-                        birthdate: selectedDate,
-                        age: new Date().getFullYear() - selectedDate.getFullYear(),
-                      }))
-                    }}
-                    className="w-full px-3 py-2 bg-white border border-purple-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors duration-300"
-                  />
+                  <label
+                    htmlFor="profile-image"
+                    className="absolute bottom-0 right-0 bg-purple-600 text-white p-2 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-110"
+                  >
+                    <Camera className="w-6 h-6" />
+                    <input
+                      id="profile-image"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="hidden"
+                    />
+                  </label>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-purple-700">Age</label>
-                  <input
-                    type="text"
-                    value={profile.age}
-                    readOnly
-                    className="mt-1 block w-full rounded-md bg-purple-100 text-purple-900 shadow-sm p-2 focus:border-purple-500 focus:ring-purple-500"
-                  />
-                </div>
+                <h2 className="mt-4 text-xl text-purple-800 font-bold">
+                  {profile.firstName} {profile.lastName}
+                </h2>
+                <p className="text-purple-600">{profile.healthStatus}</p>
               </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`mt-6 w-full py-2 rounded-md bg-purple-600 text-white transition-opacity duration-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
-                  isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-              >
-                {isSubmitting ? 'Submitting...' : 'Save Changes'}
-              </button>
-            </form>
+              <div className="p-8 md:w-2/3">
+                <h1 className="text-3xl font-bold mb-6 text-purple-900">
+                  Edit Your Profile
+                </h1>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                      {
+                        name: "firstName",
+                        label: "First Name",
+                        icon: UserRound,
+                      },
+                      { name: "lastName", label: "Last Name", icon: UserRound },
+                      {
+                        name: "contactNo",
+                        label: "Contact Number",
+                        prefix: "+91 |",
+                      },
+                      { name: "email", label: "Email", icon: Mail },
+                      {
+                        name: "bloodgroup",
+                        label: "Blood Group",
+                        icon: Droplet,
+                      },
+                      { name: "healthStatus", label: "Health Status" },
+                    ].map((field) => (
+                      <div key={field.name}>
+                        <label
+                          htmlFor={field.name}
+                          className="block text-sm font-medium text-purple-700"
+                        >
+                          {field.label}
+                        </label>
+                        <div className="relative">
+                          <input
+                            id={field.name}
+                            name={field.name}
+                            type={field.name === "email" ? "email" : "text"}
+                            value={profile[field.name]}
+                            onChange={handleInputChange}
+                            required
+                            className="mt-1 pl-10 block w-full p-2 rounded-md bg-white border border-purple-300 text-purple-900 shadow-sm focus:border-purple-500 focus:ring-purple-500 transition-colors duration-300"
+                          />
+                          {field.icon && (
+                            <field.icon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-purple-500" />
+                          )}
+                          {field.prefix && (
+                            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-500">
+                              {field.prefix}
+                            </span>
+                          )}
+                        </div>
+                        {errors[field.name] && (
+                          <p className="mt-1 text-sm text-red-500">
+                            {errors[field.name]}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                    <div>
+                      <label className="block text-sm font-medium text-purple-700">
+                        Birthdate
+                      </label>
+                      <input
+                        type="date"
+                        value={profile.birthdate.toISOString().split("T")[0]}
+                        onChange={(e) => {
+                          const selectedDate = new Date(e.target.value);
+                          setProfile((prev) => ({
+                            ...prev,
+                            birthdate: selectedDate,
+                            age:
+                              new Date().getFullYear() -
+                              selectedDate.getFullYear(),
+                          }));
+                        }}
+                        className="w-full px-3 py-2 bg-white border border-purple-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors duration-300"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-purple-700">
+                        Age
+                      </label>
+                      <input
+                        type="text"
+                        value={profile.age}
+                        readOnly
+                        className="mt-1 block w-full rounded-md bg-purple-100 text-purple-900 shadow-sm p-2 focus:border-purple-500 focus:ring-purple-500"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`mt-6 w-full py-2 rounded-md bg-purple-600 text-white transition-opacity duration-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
+                      isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
+                  >
+                    {isSubmitting ? "Submitting..." : "Save Changes"}
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
       </div>
       <div>
         <Footer />

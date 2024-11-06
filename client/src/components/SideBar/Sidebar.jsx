@@ -43,8 +43,6 @@ const Sidebar = () => {
     navigate("/");
   };
 
- 
-
   return (
     <div className="relative">
       {/* Header with Logo and Hamburger */}
@@ -66,7 +64,7 @@ const Sidebar = () => {
       >
         <div className="mb-8 w-[80%] mx-auto md:mx-0">
           {/* Logo shown in desktop view */}
-          <p className="text-start font-medium font-viga text-4xl">LifeLine</p>
+          <p className="text-start font-medium font-viga text-4xl text-white">LifeLine</p>
         </div>
 
         <nav className="space-y-4">
@@ -160,11 +158,31 @@ const Sidebar = () => {
           ]
             .flat()
             .map((item) => (
+              // <div
+              //   key={item.id}
+              //   className={`flex items-center mt-4 space-x-3 cursor-pointer p-3 rounded-md transition ${
+              //     activeLink === item.id
+              //       ? "bg-purple-700 bg-opacity-60"
+              //       : "hover:bg-purple-700"
+              //   }`}
+              //   onClick={() => {
+              //     setActiveLink(item.id); // Set active link in context
+              //     setIsSidebarOpen(false); // Close sidebar after clicking
+              //     if (item.action) {
+              //       item.action(); // Trigger custom action if exists
+              //     } else if (item.route) {
+              //       navigate(item.route); // Navigate to route if defined
+              //     }
+              //   }}
+              // >
+              //   <item.icon className="w-5 h-5" />
+              //   <span>{item.label}</span>
+              // </div>
               <div
                 key={item.id}
                 className={`flex items-center mt-4 space-x-3 cursor-pointer p-3 rounded-md transition ${
                   activeLink === item.id
-                    ? "bg-purple-700 bg-opacity-60"
+                    ? "bg-purple-700 bg-opacity-60 text-white" // Apply text-white when active
                     : "hover:bg-purple-700"
                 }`}
                 onClick={() => {

@@ -74,7 +74,7 @@ export const MakeDonation = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your full name"
-                    className="w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                    className=" text-black w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
                     required
                   />
                 </div>
@@ -89,7 +89,7 @@ export const MakeDonation = () => {
                     id="bloodGroup"
                     value={bloodGroup}
                     onChange={(e) => setBloodGroup(e.target.value)}
-                    className="w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                    className=" text-black w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
                     required
                   >
                     <option value="">Select your blood group</option>
@@ -117,7 +117,7 @@ export const MakeDonation = () => {
                     onChange={(e) => setQuantity(e.target.value)}
                     placeholder="Enter donation quantity in ml"
                     min="0"
-                    className="w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                    className=" text-black w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
                     required
                   />
                 </div>
@@ -133,7 +133,7 @@ export const MakeDonation = () => {
                     type="datetime-local"
                     value={donationDate}
                     onChange={(e) => setDonationDate(e.target.value)}
-                    className="w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                    className="text-black w-full px-3 py-2 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
                     required
                   />
                 </div>

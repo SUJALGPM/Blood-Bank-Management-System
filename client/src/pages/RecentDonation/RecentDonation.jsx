@@ -174,8 +174,8 @@ export const RecentDonation = () => {
                                 <span
                                   className={`px-2 py-1 rounded-full text-xs font-medium ${
                                     donation.inventory_status === "IN"
-                                      ? "bg-purple-200 text-purple-100"
-                                      : "bg-purple-200 text-purple-200"
+                                      ? "bg-purple-200 "
+                                      : "bg-purple-200 "
                                   }`}
                                 >
                                   {donation.inventory_status}

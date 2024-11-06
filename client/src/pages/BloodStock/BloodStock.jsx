@@ -20,7 +20,7 @@ export default function BloodInventory() {
     <div className="bg-purple-50  min-h-screen flex flex-col">
       <div className="flex-grow flex flex-col h-screen lg:flex-row">
         <Sidebar />
-        <main className="flex-grow p-4 lg:p-8 flex items-center justify-center">
+        <main className="flex-grow flex items-center justify-center">
           <div className="container mx-auto p-4 bg-purple-100 min-h-screen text-purple-950">
             <h1 className="text-3xl font-bold text-start mb-2 text-purple-950">
               Blood Inventory

@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <header className="bg-purple-700 text-white">
-      <div className="px-4 py-4 flex justify-between w-screen items-center">
+      <div className="px-4 py-1 flex justify-between w-screen items-center">
         <div className="text-2xl font-bold">LifeFlow</div>
 
         {/* Mobile Menu Button */}

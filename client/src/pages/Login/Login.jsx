@@ -198,10 +198,11 @@ const Login = () => {
             <img src={vector} className="h-full object-cover" alt="Vector" />
             <div className="absolute top-10 right-10 w-[67%] h-[80%] p-8">
               <div className="">
-                <p className="text-3xl font-viga">Welcome Back at,</p>
+                <p className="text-3xl font-viga text-white">Welcome Back at,</p>
               </div>
               <div className="w-full flex justify-end mt-4 pr-14">
-                <img src={Logo} alt="" className="h-10" />
+                {/* <img src={Logo} alt="" className="h-10" /> */}
+                <text className="text-3xl font-viga text-white">LifeFlow Nation</text>
               </div>
 
               <div className="mt-16">
@@ -212,7 +213,7 @@ const Login = () => {
                     onRoleChange={setSelectedRole}
                   />
                   <div className="mt-5 ">
-                    <p className="text-xs font-light">email</p>
+                    <p className="text-xs font-light text-white">email</p>
                     <input
                       type="text"
                       name="email"
@@ -228,7 +229,7 @@ const Login = () => {
                     )}
                   </div>
                   <div className="mt-5 w-[100%] relative">
-                    <p className="text-xs font-light">Password</p>
+                    <p className="text-xs font-light text-white">Password</p>
                     <input
                       type={showPassword ? "text" : "password"}
                       name="password"
@@ -256,7 +257,7 @@ const Login = () => {
                       <input
                         type="submit"
                         value={`Login as ${selectedRole.toUpperCase()}`}
-                        className="text-center font-viga text-sm border shadow-md shadow-gray-400 hover:shadow-none cursor-pointer border-gray-500 rounded px-5 py-2"
+                        className="text-center font-viga text-sm border shadow-md shadow-gray-400 hover:shadow-none cursor-pointer border-gray-500 rounded px-5 py-2 text-white"
                       />
                     </div>
                   </div>

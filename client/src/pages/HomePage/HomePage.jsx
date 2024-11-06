@@ -17,7 +17,7 @@ export default function HomePage() {
       <Header/>
 
       <main className="flex-grow">
-        <section className="bg-gradient-to-r from-purple-600 h-[80vh] flex items-center to-pink-500 text-white py-20">
+        <section className="bg-gradient-to-r from-purple-600 h-[90vh] flex items-center to-pink-500 text-white py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-4 animate-pulse">
               Be a Lifesaver

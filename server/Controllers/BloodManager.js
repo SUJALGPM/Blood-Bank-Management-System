@@ -270,9 +270,13 @@ const recentDonations = async (req, res) => {
         const db = await connectDb();
         
         // SQL query to fetch recent donations where inventory_status is 'IN'
+        // const getDonationsQuery = `
+        //     SELECT * FROM blood 
+        //     WHERE inventory_status = 'IN'
+        //     ORDER BY created_at DESC
+        // `;
         const getDonationsQuery = `
             SELECT * FROM blood 
-            WHERE inventory_status = 'IN'
             ORDER BY created_at DESC
         `;
 
