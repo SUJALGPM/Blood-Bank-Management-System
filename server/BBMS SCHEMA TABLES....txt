@@ -1,0 +1,81 @@
+-- Creating the donors table
+CREATE TABLE donors (
+    id VARCHAR(224) NOT NULL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    contact VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    blood_group VARCHAR(10),
+    health_status VARCHAR(100),
+    age INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Creating the donee table
+CREATE TABLE donee (
+    id VARCHAR(224) NOT NULL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    contact VARCHAR(20) NOT NULL UNIQUE,
+    health_status VARCHAR(255),
+    blood_group VARCHAR(200),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    password VARCHAR(224),
+    age INT
+);
+
+-- Creating the blood table with foreign key references to donors and donee
+CREATE TABLE blood (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    donor_id VARCHAR(224),
+    donor_name VARCHAR(100),
+    donee_id VARCHAR(224),
+    donee_name VARCHAR(100),
+    blood_type VARCHAR(3) NOT NULL,
+    quantity_ml INT NOT NULL,
+    request_date DATE,
+    request_status ENUM('PENDING', 'COMPLETED', 'CANCELLED') DEFAULT 'PENDING',
+    donation_date DATE,
+    inventory_status ENUM('IN', 'OUT') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (donor_id) REFERENCES donors(id),
+    FOREIGN KEY (donee_id) REFERENCES donee(id)
+);
+
+-- Creating the bloodbank table with a unique blood type constraint
+CREATE TABLE bloodbank (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    blood_type VARCHAR(3) NOT NULL UNIQUE,
+    quantity_ml INT NOT NULL DEFAULT 0,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- After creating bloodbank table run this command...
+INSERT IGNORE INTO bloodbank (blood_type, quantity_ml)
+VALUES
+    ('O+', 0),
+    ('O-', 0),
+    ('A+', 0),
+    ('A-', 0),
+    ('B+', 0),
+    ('B-', 0),
+    ('AB+', 0),
+    ('AB-', 0);
+
+
+-- Creating the blood_manager table
+CREATE TABLE blood_manager (
+    id VARCHAR(224) NOT NULL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    pending_requests JSON
+);

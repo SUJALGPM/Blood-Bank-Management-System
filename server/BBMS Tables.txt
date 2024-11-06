@@ -1,0 +1,78 @@
+CREATE TABLE donors (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    contact VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,  -- Added password field
+    blood_group VARCHAR(10) NOT NULL,
+    health_status VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE blood_manager (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE blood (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    donor_id INT DEFAULT NULL,           -- Reference to donor (nullable)
+    donor_name VARCHAR(100) DEFAULT NULL, -- Donor's name
+    donee_id INT DEFAULT NULL,           -- Reference to donee (nullable)
+    donee_name VARCHAR(100) DEFAULT NULL, -- Donee's name
+    blood_type VARCHAR(3) NOT NULL,      -- Blood type, e.g., A+, B-, O+
+    quantity_ml INT NOT NULL,            -- Quantity donated in milliliters
+    donation_date DATE NOT NULL,
+    inventory_status ENUM('IN', 'OUT') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (donor_id) REFERENCES donors(id) ON DELETE CASCADE,
+    FOREIGN KEY (donee_id) REFERENCES donee(id) ON DELETE CASCADE
+);
+
+CREATE TABLE bloodbank (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    blood_type VARCHAR(3) NOT NULL UNIQUE, -- Blood type, e.g., A+, B-, O+
+    quantity_ml INT NOT NULL DEFAULT 0,    -- Total quantity in milliliters
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+
+CREATE TABLE donee (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    health_status VARCHAR(255),
+    request_date DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE donee (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(20) NOT NULL UNIQUE,  
+    health_status VARCHAR(255), -- Health status of the donee
+    request_date DATE,          -- Date of the blood request
+    blood_type VARCHAR(3),      -- Blood type requested (e.g., A+, B-, O+)
+    quantity_ml INT,            -- Quantity of blood requested in milliliters
+    request_status ENUM('PENDING', 'COMPLETED', 'CANCELLED') DEFAULT 'PENDING', -- Status of the request
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+
