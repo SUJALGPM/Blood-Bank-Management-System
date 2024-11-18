@@ -20,7 +20,7 @@ A secure page for users to enter their credentials and access their accounts.
 Allows new users to create an account by providing their details.
 
 
-4. Dashboard
+4. Dashboard....
 ![image](https://github.com/user-attachments/assets/182e68f4-93e4-4eb1-bb58-2814f198be0d)
 The main hub for users to view their activities and access features.
 
