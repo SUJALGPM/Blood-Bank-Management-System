@@ -1,5 +1,3 @@
-![image](https://github.com/user-attachments/assets/6b7893db-e12c-4708-b001-53f87b0e9af7)
-
 # LifeFlow: Blood Management System
 ## The LifeFlow: Blood Management System is a comprehensive application designed to streamline the process of blood donation and management. This system enables donors to register and donate blood while a Blood Manager oversees requests, ensuring efficient management and allocation of blood supplies. The application also displays available blood resources, facilitating better tracking and organization.
 
