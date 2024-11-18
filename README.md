@@ -9,3 +9,20 @@ The Blood Management System is a basic application designed to streamline the pr
      ![image](https://github.com/user-attachments/assets/7ccd8101-f5da-459e-9c53-b609d8b92160)
 
 The main landing page with an overview of the app and navigation options.
+
+2. Login Page
+
+   ![image](https://github.com/user-attachments/assets/a028e813-ea82-467e-a2b3-7c95715f0607)
+
+A secure page for users to enter their credentials and access their accounts.
+
+3. Register Page
+
+  ![image](https://github.com/user-attachments/assets/c4ab90b5-2701-4fcb-ab91-ad5ac4398c7d)
+
+Allows new users to create an account by providing their details.
+
+4. Dashboard
+
+![image](https://github.com/user-attachments/assets/182e68f4-93e4-4eb1-bb58-2814f198be0d)
+
