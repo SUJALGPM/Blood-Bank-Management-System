@@ -6,6 +6,6 @@ The Blood Management System is a basic application designed to streamline the pr
 1. Home Page
  ![image](https://github.com/user-attachments/assets/3dc23a11-ebf5-4598-8e2c-f3857d1d02ad)
 
-  ![image](https://github.com/user-attachments/assets/7ccd8101-f5da-459e-9c53-b609d8b92160)
+     ![image](https://github.com/user-attachments/assets/7ccd8101-f5da-459e-9c53-b609d8b92160)
 
 The main landing page with an overview of the app and navigation options.
